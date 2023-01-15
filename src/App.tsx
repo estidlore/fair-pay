@@ -3,8 +3,8 @@ import React from "react";
 
 const App: FC = (): JSX.Element => {
   return (
-    <div>
-      <p>{"Fair Pay"}</p>
+    <div className={"app"}>
+      <p className={"header"}>{"Fair Pay"}</p>
     </div>
   );
 };
