@@ -1,0 +1,20 @@
+.card {
+  border: 2px solid var(--light);
+  border-radius: 4px;
+  padding: 16px;
+
+  & > .actions {
+    display: flex;
+    flex-direction: row;
+    margin-top: 16px;
+
+    & > .button {
+      margin-right: 8px;
+    }
+  }
+
+  & > .header {
+    font-size: 20px;
+    margin-top: 0px;
+  }
+}
