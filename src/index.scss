@@ -1,0 +1,24 @@
+:root {
+  --dark: #202830;
+  --light: #d0d8e0;
+  background-color: var(--dark);
+  color: var(--light);
+  font-family: Arial, sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.app {
+  display: block;
+  max-width: 100%;
+  width: 500px;
+
+  & > .header {
+    font-size: 32px;
+    font-weight: bold;
+  }
+}
