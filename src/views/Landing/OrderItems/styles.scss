@@ -1,0 +1,17 @@
+.order-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  & > * {
+    margin-bottom: 0.5em;
+    margin-top: 0px;
+    width: 25%;
+  }
+
+  & > .header {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
