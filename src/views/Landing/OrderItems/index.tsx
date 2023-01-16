@@ -15,18 +15,18 @@ const OrderItems: FC<OrderItemsProps> = ({
       <p className={"header"}>{"Unit price"}</p>
       <p className={"header"}>{"Quantity"}</p>
       <p className={"header"}>{"Total price"}</p>
-      {items.map((item) => {
-        const { product } = item;
-
-        return (
-          <Fragment key={item.id}>
+      {items.length === 0 ? (
+        <p className={"no-items"}>{"There are not items to show"}</p>
+      ) : (
+        items.map(({ id, product, quantity }) => (
+          <Fragment key={id}>
             <p>{product.name}</p>
             <p>{product.price}</p>
-            <p>{item.quantity}</p>
-            <p>{product.price * item.quantity}</p>
+            <p>{quantity}</p>
+            <p>{product.price * quantity}</p>
           </Fragment>
-        );
-      })}
+        ))
+      )}
     </div>
   );
 };
