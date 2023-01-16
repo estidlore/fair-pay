@@ -1,0 +1,16 @@
+.add-item {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+
+  & > .form-control {
+    display: flex;
+    flex: 1 0 0px;
+    flex-direction: column;
+    margin-right: 8px;
+
+    & > label {
+      margin-bottom: 8px;
+    }
+  }
+}
