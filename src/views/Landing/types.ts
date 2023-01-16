@@ -1,9 +1,9 @@
-import type { Customer, Table } from "types";
+import type { Order, Table } from "types";
 
 interface TableContextValue extends Table {
-  addCustomer?: (customer: Customer) => void;
-  deleteCustomer?: (customerId: number) => void;
-  editCustomer?: (customer: Customer) => void;
+  addOrder?: (order: Order) => void;
+  deleteOrder?: (orderId: number) => void;
+  editOrder?: (order: Order) => void;
 }
 
 export type { TableContextValue };
