@@ -17,8 +17,9 @@ const Input: FC<InputProps> = ({
 
   const handleChange = useCallback(
     (ev: ChangeEvent<HTMLInputElement>) => {
-      onChange?.(ev);
-      setControlledValue(ev.target.value);
+      const newValue = ev.target.value;
+      onChange?.(newValue);
+      setControlledValue(newValue);
     },
     [onChange, setControlledValue]
   );

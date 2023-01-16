@@ -1,8 +1,11 @@
 import type { SelectHTMLAttributes } from "react";
 
-type SelectProps = Pick<
-  SelectHTMLAttributes<HTMLSelectElement>,
-  "children" | "name" | "onChange" | "value"
->;
+interface SelectProps
+  extends Pick<
+    SelectHTMLAttributes<HTMLSelectElement>,
+    "children" | "name" | "value"
+  > {
+  onChange?: (newValue: string) => void;
+}
 
 export type { SelectProps };

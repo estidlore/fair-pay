@@ -16,8 +16,9 @@ const Select: FC<SelectProps> = ({
 
   const handleChange = useCallback(
     (ev: ChangeEvent<HTMLSelectElement>) => {
-      onChange?.(ev);
-      setControlledValue(ev.target.value);
+      const newValue = ev.target.value;
+      onChange?.(newValue);
+      setControlledValue(newValue);
     },
     [onChange, setControlledValue]
   );
