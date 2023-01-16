@@ -1,0 +1,13 @@
+.take-order {
+  & > .form-control {
+    margin-bottom: 24px;
+
+    & > label {
+      margin-right: 8px;
+    }
+  }
+
+  & hr {
+    margin-bottom: 24px;
+  }
+}
