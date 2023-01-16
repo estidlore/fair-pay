@@ -1,3 +1,11 @@
+.orders {
+  & > .header {
+    font-size: 24px;
+    margin-bottom: 0.25em;
+    margin-top: 0.5em;
+  }
+}
+
 .table-select {
   margin-bottom: 16px;
 
