@@ -10,8 +10,8 @@ import { useArrayReducer } from "utils/hooks/arrayReducer";
 import type { TableContextValue } from "./types";
 
 const tableInitialValue: TableContextValue = {
-  customers: [],
-  id: 1
+  id: 1,
+  orders: []
 };
 
 const TableContext = createContext(tableInitialValue);
@@ -19,18 +19,19 @@ const TableContext = createContext(tableInitialValue);
 const Landing: FC = (): JSX.Element => {
   const tables = Array.from({ length: 7 }, (_, i) => i + 1);
 
-  const [customers, addCustomer, deleteCustomer, editCustomer] =
-    useArrayReducer(tableInitialValue.customers);
+  const [orders, addOrder, deleteOrder, editOrder] = useArrayReducer(
+    tableInitialValue.orders
+  );
 
   return (
     <div>
       <TableContext.Provider
         value={{
-          addCustomer,
-          customers,
-          deleteCustomer,
-          editCustomer,
-          id: 1
+          addOrder,
+          deleteOrder,
+          editOrder,
+          id: 1,
+          orders
         }}
       >
         <div className={"table-select"}>

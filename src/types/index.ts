@@ -1,10 +1,6 @@
-interface Customer {
-  id: number;
-  name: string;
-  order: Order;
-}
-
 interface Order {
+  customer: string;
+  id: number;
   items: OrderItem[];
   tip: number;
 }
@@ -22,8 +18,8 @@ interface Product {
 }
 
 interface Table {
-  customers: Customer[];
+  orders: Order[];
   id: number;
 }
 
-export type { Customer, Order, OrderItem, Product, Table };
+export type { Order, OrderItem, Product, Table };
