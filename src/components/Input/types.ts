@@ -1,8 +1,11 @@
 import type { InputHTMLAttributes } from "react";
 
-type InputProps = Pick<
-  InputHTMLAttributes<HTMLInputElement>,
-  "name" | "onChange" | "placeholder" | "type" | "value"
->;
+interface InputProps
+  extends Pick<
+    InputHTMLAttributes<HTMLInputElement>,
+    "name" | "placeholder" | "type" | "value"
+  > {
+  onChange?: (newValue: string) => void;
+}
 
 export type { InputProps };
