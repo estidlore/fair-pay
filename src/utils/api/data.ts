@@ -33,6 +33,8 @@ const products: Product[] = [
   }
 ];
 
-const apiData = { products };
+const tables = Array.from({ length: 7 }, (_, i) => i + 1);
+
+const apiData = { products, tables };
 
 export { apiData };
