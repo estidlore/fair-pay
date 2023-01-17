@@ -1,8 +1,7 @@
 import "./styles.scss";
 
 import type { FC } from "react";
-import { useCallback, useEffect, useState } from "react";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { Button } from "components/Button";
 import { Input } from "components/Input";

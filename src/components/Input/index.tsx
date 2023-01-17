@@ -1,8 +1,7 @@
 import "./styles.scss";
 
 import type { ChangeEvent, FC } from "react";
-import { useCallback, useState } from "react";
-import React from "react";
+import React, { useCallback, useState } from "react";
 
 import type { InputProps } from "./types";
 

@@ -1,9 +1,15 @@
 .take-order {
   & > .form-control {
+    display: flex;
+    flex-direction: row;
     margin-bottom: 24px;
 
     & > label {
-      margin-right: 8px;
+      width: 25%;
+    }
+
+    & > .input {
+      width: 50%;
     }
   }
 

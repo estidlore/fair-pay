@@ -1,8 +1,7 @@
 import "./styles.scss";
 
 import type { FC } from "react";
-import { Fragment } from "react";
-import React from "react";
+import React, { Fragment } from "react";
 
 import { getSubtotalPrice } from "utils/orders";
 

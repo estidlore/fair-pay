@@ -1,3 +1,24 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #606870;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #d0d8e0;
+  border-radius: 4px;
+}
+
 :root {
   --dark: #202830;
   --light: #d0d8e0;
