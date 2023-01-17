@@ -1,4 +1,5 @@
 interface Order {
+  approved: boolean;
   customer: string;
   id: number;
   items: OrderItem[];
