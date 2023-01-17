@@ -16,6 +16,7 @@ import type { OrderItem, Product } from "types";
 import { fetchApi } from "utils/api";
 import { isEmpty, validateEmpty } from "utils/form/text";
 import { useArrayReducer } from "utils/hooks/arrayReducer";
+import { getNonOrderedProducts } from "utils/orders";
 
 import { TableContext } from "..";
 import { AddItem } from "../AddItem";
@@ -34,9 +35,7 @@ const TakeOrder: FC<TakeOrderProps> = ({
   const { addOrder, orders } = useContext(TableContext);
 
   useEffect(() => {
-    const options = products.filter((product) => {
-      return items.filter((item) => item.id === product.id).length === 0;
-    });
+    const options = getNonOrderedProducts(products, items);
     setProductOptions(options);
   }, [items, products, setProductOptions]);
 
@@ -69,6 +68,7 @@ const TakeOrder: FC<TakeOrderProps> = ({
       return;
     }
     addOrder?.({
+      approved: false,
       customer,
       id: orders.length + 1,
       items,
