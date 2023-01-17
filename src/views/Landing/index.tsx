@@ -10,13 +10,12 @@ import React, {
 } from "react";
 
 import { Button } from "components/Button";
-import { Card } from "components/Card";
 import { Select } from "components/Select";
 import type { Order } from "types";
 import { fetchApi } from "utils/api";
 import { useArrayReducer } from "utils/hooks/arrayReducer";
 
-import { OrderItems } from "./OrderItems";
+import { Orders } from "./Orders";
 import { TakeOrder } from "./TakeOrder";
 import type { TableContextValue } from "./types";
 
@@ -72,18 +71,7 @@ const Landing: FC = (): JSX.Element => {
             ))}
           </Select>
         </div>
-        <div className={"orders"}>
-          <p className={"header"}>{"Orders"}</p>
-          {orders.length === 0 ? (
-            <p>{"There are not orders currently"}</p>
-          ) : (
-            orders.map((order) => (
-              <Card header={`${order.customer}'s order`} key={order.id}>
-                <OrderItems items={order.items} />
-              </Card>
-            ))
-          )}
-        </div>
+        <Orders />
         <hr />
         {takingOrder ? (
           <TakeOrder onCancel={toggleTakingOrder} />
