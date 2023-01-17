@@ -4,6 +4,8 @@ import type { FC } from "react";
 import { Fragment } from "react";
 import React from "react";
 
+import { getSubtotalPrice } from "utils/orders";
+
 import type { OrderItemsProps } from "./types";
 
 const OrderItems: FC<OrderItemsProps> = ({
@@ -18,14 +20,18 @@ const OrderItems: FC<OrderItemsProps> = ({
       {items.length === 0 ? (
         <p className={"no-items"}>{"There are not items to show"}</p>
       ) : (
-        items.map(({ id, product, quantity }) => (
-          <Fragment key={id}>
-            <p>{product.name}</p>
-            <p>{product.price}</p>
-            <p>{quantity}</p>
-            <p>{product.price * quantity}</p>
-          </Fragment>
-        ))
+        <Fragment>
+          {items.map(({ id, product, quantity }) => (
+            <Fragment key={id}>
+              <p>{product.name}</p>
+              <p>{product.price}</p>
+              <p>{quantity}</p>
+              <p>{product.price * quantity}</p>
+            </Fragment>
+          ))}
+          <p className={"header"}>{"Subtotal"}</p>
+          <p>{getSubtotalPrice(items)}</p>
+        </Fragment>
       )}
     </div>
   );
