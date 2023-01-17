@@ -40,7 +40,7 @@
   "main": "index.js",
   "name": "fair-pay",
   "scripts": {
-    "build": "NODE_ENV=production webpack",
+    "build": "webpack-cli ./src/index.tsx --config webpack.config.js",
     "format": "prettier --config .prettierrc.js --write src/**/*.{ts,tsx,scss}",
     "lint": "eslint --ext .ts,.tsx src --fix",
     "start": "webpack serve --port 3000",
