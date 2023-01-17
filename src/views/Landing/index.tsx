@@ -1,12 +1,19 @@
 import "./styles.scss";
 
 import type { FC } from "react";
-import React, { createContext, useCallback, useReducer } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useEffect,
+  useReducer,
+  useState
+} from "react";
 
 import { Button } from "components/Button";
 import { Card } from "components/Card";
 import { Select } from "components/Select";
 import type { Order } from "types";
+import { fetchApi } from "utils/api";
 import { useArrayReducer } from "utils/hooks/arrayReducer";
 
 import { OrderItems } from "./OrderItems";
@@ -21,8 +28,7 @@ const tableInitialValue: TableContextValue = {
 const TableContext = createContext(tableInitialValue);
 
 const Landing: FC = (): JSX.Element => {
-  const tables = Array.from({ length: 7 }, (_, i) => i + 1);
-
+  const [tables, setTables] = useState<number[]>([]);
   const [orders, addOrder, deleteOrder, editOrder] = useArrayReducer(
     tableInitialValue.orders
   );
@@ -35,6 +41,17 @@ const Landing: FC = (): JSX.Element => {
     },
     [addOrder, toggleTakingOrder]
   );
+
+  useEffect(() => {
+    fetchApi("tables")
+      .then(async (res) => res.json())
+      .then((data: number[]) => {
+        setTables(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [setTables]);
 
   return (
     <div>

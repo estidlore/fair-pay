@@ -21,4 +21,21 @@ describe("fetchApi", () => {
         console.error(err);
       });
   });
+
+  it("Load tables", async () => {
+    const { tables } = apiData;
+    expect.assertions(tables.length + 1);
+
+    return fetchApi("tables")
+      .then(async (res) => res.json())
+      .then((data: number[]) => {
+        expect(data.length).toBe(tables.length);
+        data.forEach((el, index) => {
+          expect(data[index]).toBe(el);
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
 });
